@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Dominick Limpag | Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #050d1a;
+      color: #c8d8e8;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .grid-bg {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(0,200,150,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,200,150,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none; z-index: 0;
+    }
+
+    .scan-line {
+      position: fixed; top: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, #00e6a0, transparent);
+      animation: scan 6s linear infinite; z-index: 1; pointer-events: none;
+    }
+    @keyframes scan { 0%{top:-2px} 100%{top:100%} }
+
+    .content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+    /* HERO */
+    .hero { padding: 3rem 0 2.5rem; border-bottom: 0.5px solid rgba(0,230,160,0.2); }
+    .hero-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; color: #00e6a0; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .hero-tag::before { content: '> '; opacity: 0.5; }
+    .hero h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 500;
+      color: #e8f4ff; line-height: 1.15; margin-bottom: 0.5rem;
+    }
+    .hero h1 span { color: #00e6a0; }
+    .hero-title {
+      font-size: 14px; color: #7a9bb5; letter-spacing: 1px;
+      font-family: 'IBM Plex Mono', monospace; margin-bottom: 1.5rem;
+    }
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-chip {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      color: #7a9bb5; background: rgba(0,230,160,0.06);
+      border: 0.5px solid rgba(0,230,160,0.2);
+      padding: 5px 12px; border-radius: 2px; white-space: nowrap;
+    }
+    .contact-chip a { color: #00e6a0; text-decoration: none; }
+
+    /* SECTION */
+    .section { padding: 2rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; color: #00e6a0; letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(0,230,160,0.2); }
+
+    /* ABOUT */
+    .about-text { font-size: 15px; line-height: 1.8; color: #9ab5cc; max-width: 720px; }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .exp-item {
+      background: rgba(255,255,255,0.02);
+      border: 0.5px solid rgba(255,255,255,0.07);
+      border-left: 2px solid rgba(0,230,160,0.4);
+      padding: 1rem 1.25rem; border-radius: 0 4px 4px 0;
+    }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 0.4rem; }
+    .exp-role { font-size: 14px; font-weight: 500; color: #e8f4ff; }
+    .exp-company { font-size: 13px; color: #00e6a0; }
+    .exp-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; color: #4a6a80; white-space: nowrap;
+    }
+    .exp-bullets { margin-top: 0.6rem; padding-left: 0; list-style: none; }
+    .exp-bullets li { font-size: 13px; color: #7a9bb5; line-height: 1.7; padding-left: 1rem; position: relative; }
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: rgba(0,230,160,0.4); }
+
+    /* SKILLS */
+    .skill-table { width: 100%; border-collapse: collapse; }
+    .skill-table tr { border-bottom: 0.5px solid rgba(255,255,255,0.04); }
+    .skill-table tr:last-child { border-bottom: none; }
+    .skill-table td { padding: 10px 0; vertical-align: top; }
+    .skill-cat {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; font-weight: 500; color: #00e6a0;
+      white-space: nowrap; padding-right: 1.5rem; width: 140px;
+    }
+    .skill-vals { font-size: 13px; color: #7a9bb5; line-height: 1.7; }
+
+    /* FEATURED PROJECT */
+    .project-card {
+      background: rgba(0,230,160,0.04);
+      border: 0.5px solid rgba(0,230,160,0.25);
+      padding: 1.25rem 1.5rem; border-radius: 4px;
+    }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 0.5rem; }
+    .project-name { font-size: 14px; font-weight: 500; color: #e8f4ff; }
+    .project-tag {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      color: #00e6a0; background: rgba(0,230,160,0.1);
+      border: 0.5px solid rgba(0,230,160,0.3);
+      padding: 3px 10px; border-radius: 2px;
+    }
+    .project-desc { font-size: 13px; color: #7a9bb5; line-height: 1.7; margin-bottom: 0.75rem; }
+    .project-link {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      color: #00e6a0; text-decoration: none;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* CERTS */
+    .cert-section { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-group { }
+    .cert-group-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; color: #00e6a0; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 6px; }
+    .cert-chip {
+      font-size: 12px; color: #8aabbd;
+      background: rgba(0,230,160,0.04);
+      border: 0.5px solid rgba(0,230,160,0.15);
+      padding: 7px 12px; border-radius: 3px; line-height: 1.4;
+    }
+    .cert-chip strong { display: block; color: #c8d8e8; font-weight: 500; font-size: 12px; margin-bottom: 1px; }
+
+    /* EDU */
+    .edu-list { display: flex; flex-direction: column; gap: 10px; }
+    .edu-card {
+      background: rgba(255,255,255,0.02);
+      border: 0.5px solid rgba(255,255,255,0.07);
+      padding: 1.25rem; border-radius: 4px; display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .edu-badge {
+      width: 40px; height: 40px; border-radius: 4px;
+      background: rgba(0,230,160,0.12); border: 0.5px solid rgba(0,230,160,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #00e6a0; font-weight: 500; flex-shrink: 0;
+      text-align: center; line-height: 1.3;
+    }
+    .edu-degree { font-size: 14px; font-weight: 500; color: #e8f4ff; margin-bottom: 3px; }
+    .edu-school { font-size: 13px; color: #00e6a0; margin-bottom: 2px; }
+    .edu-year { font-size: 12px; color: #4a6a80; font-family: 'IBM Plex Mono', monospace; margin-bottom: 6px; }
+    .edu-bullets { padding-left: 0; list-style: none; margin-top: 4px; }
+    .edu-bullets li { font-size: 12px; color: #7a9bb5; line-height: 1.7; padding-left: 1rem; position: relative; }
+    .edu-bullets li::before { content: '—'; position: absolute; left: 0; color: rgba(0,230,160,0.4); }
+
+    /* CTA */
+    .cta-block {
+      margin-top: 2.5rem;
+      background: rgba(0,230,160,0.05);
+      border: 0.5px solid rgba(0,230,160,0.25);
+      padding: 2rem; border-radius: 4px; text-align: center;
+    }
+    .cta-block h3 { font-size: 18px; color: #e8f4ff; margin-bottom: 0.5rem; font-weight: 500; }
+    .cta-block p { font-size: 13px; color: #7a9bb5; margin-bottom: 1.25rem; }
+    .cta-email {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+      color: #050d1a; background: #00e6a0;
+      padding: 10px 24px; border-radius: 3px; text-decoration: none;
+      font-weight: 500; letter-spacing: 0.5px;
+    }
+    .cta-email:hover { background: #00c98a; }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="scan-line"></div>
+
+  <div class="content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="hero-tag">cybersecurity portfolio</p>
+      <h1>John Dominick<br><span>Limpag</span></h1>
+      <p class="hero-title">Senior SOC Specialist &nbsp;/&nbsp; DFIR Analyst &nbsp;/&nbsp; Threat Hunter</p>
+      <div class="hero-contact">
+        <span class="contact-chip">Pasay City, PH</span>
+        <span class="contact-chip">0997 247 7396</span>
+        <span class="contact-chip"><a href="mailto:johndominicklimpag@gmail.com">johndominicklimpag@gmail.com</a></span>
+        <span class="contact-chip"><a href="https://linkedin.com/in/john-dominick-limpag-390a12264" target="_blank">LinkedIn ↗</a></span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section">
+      <p class="section-label">Profile</p>
+      <p class="about-text">Cybersecurity Specialist with 6+ years of experience in Security Operations, Digital Forensics and Incident Response (DFIR), Threat Hunting, and Vulnerability Assessment. Experienced in enterprise-level SOC environments, leading 24/7 monitoring teams, and implementing compliance frameworks including NIST 800-171, ISO 27001, PCI-DSS, FedRAMP, and SOC 2.</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <p class="section-label">Experience</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-role">Senior SOC Specialist</div><div class="exp-company">SupportZebra</div></div>
+            <span class="exp-date">Dec 2024 – Apr 2026</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Lead DFIR and SOC operations using Microsoft Defender (Global Admin), Sentinel, and Splunk SIEM</li>
+            <li>Manage Palo Alto Cortex XDR, Sophos Firewall, Microsoft Intune, and Exchange</li>
+            <li>Administer NinjaOne RMM for endpoint monitoring and patch management</li>
+            <li>Handle ticketing workflows via ServiceNow and ConnectWise</li>
+            <li>Conduct vulnerability assessments; guide NIST, FedRAMP, and ISO 27001 compliance</li>
+            <li>Supervise 24/7 Security Operations Center team</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-role">SOC Engineer II</div><div class="exp-company">Adventus IT Services (PH)</div></div>
+            <span class="exp-date">May 2023 – Nov 2024</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Monitored network activity across Meraki, FortiGate, and Palo Alto firewall environments</li>
+            <li>Utilized Datadog SIEM for log correlation and anomaly detection</li>
+            <li>Handled incident response, priority alert reporting, and security improvement processes</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-role">Security Consultant (Penetration Tester)</div><div class="exp-company">IT Dynamics</div></div>
+            <span class="exp-date">Apr 2022 – Apr 2023</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Conducted network and web application penetration testing (VAPT)</li>
+            <li>Delivered manual exploitation findings and detailed remediation reports</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-role">Incident Response Analyst</div><div class="exp-company">Purple Security Inc.</div></div>
+            <span class="exp-date">Jan 2020 – Mar 2022</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Investigated incidents from detection to containment</li>
+            <li>Developed incident response playbooks and forensic analysis workflows</li>
+            <li>Leveraged Tines for security automation and alert enrichment</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <p class="section-label">Skills &amp; Tools</p>
+      <table class="skill-table">
+        <tr>
+          <td class="skill-cat">Security Ops</td>
+          <td class="skill-vals">DFIR · Threat Hunting · Malware Analysis · Penetration Testing (VAPT) · IOC Triage</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">SIEM</td>
+          <td class="skill-vals">Microsoft Sentinel · Splunk · Datadog SIEM · QRadar · AlienVault · Rapid7</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Endpoint / XDR</td>
+          <td class="skill-vals">Palo Alto Cortex XDR · Microsoft Defender (Global Admin) · Microsoft Intune · NinjaOne RMM · Sophos</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Firewall / Network</td>
+          <td class="skill-vals">Palo Alto Firewalls · Cisco Meraki · FortiGate · Sophos Firewall</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Ticketing / SOAR</td>
+          <td class="skill-vals">ServiceNow · Freshdesk · ConnectWise · Tines</td>
+        </tr>
+        <tr>
+          <td class="skill-cat">Compliance</td>
+          <td class="skill-vals">NIST 800-171 · ISO 27001 · PCI-DSS · FedRAMP · SOC 2</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- FEATURED PROJECT -->
+    <div class="section">
+      <p class="section-label">Featured Project</p>
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">JDLThreatIntel — Custom-Built Threat Intelligence Platform</div>
+          <span class="project-tag">Custom Built</span>
+        </div>
+        <p class="project-desc">A browser-based malware analysis and threat intelligence platform built entirely from scratch. Features a 22-engine AV scanner, behavioral sandbox (Windows/Linux VM simulation), IOC intelligence lookup, MITRE ATT&amp;CK mapping, and automated IR report generation — all running client-side with no backend or API key required.</p>
+        <a class="project-link" href="https://acherm4n.github.io/jdl-threat-intel/" target="_blank">↗ https://acherm4n.github.io/jdl-threat-intel/</a>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section">
+      <p class="section-label">Certifications</p>
+      <div class="cert-section">
+
+        <div class="cert-group">
+          <p class="cert-group-label">Professional &amp; Certified</p>
+          <div class="cert-grid">
+            <div class="cert-chip"><strong>ISC2 CC</strong>Certified in Cybersecurity</div>
+            <div class="cert-chip"><strong>CEH</strong>Certified Ethical Hacker — EC-Council</div>
+            <div class="cert-chip"><strong>CompTIA Security+</strong>CompTIA</div>
+            <div class="cert-chip"><strong>BTL1</strong>Blue Team Level 1 — Security Blue Team</div>
+            <div class="cert-chip"><strong>SC-200</strong>Microsoft 365 Defender — Microsoft</div>
+            <div class="cert-chip"><strong>AZ-900</strong>Azure Fundamentals — Microsoft</div>
+            <div class="cert-chip"><strong>CNSP</strong>Network Security Practitioner — SecOps Group</div>
+            <div class="cert-chip"><strong>CAP</strong>Certified AppSec Practitioner — SecOps Group</div>
+            <div class="cert-chip"><strong>C3SA</strong>Cyber Security Analyst — CyberWarFare Labs</div>
+            <div class="cert-chip"><strong>TryHackMe SAL1</strong>Security Analyst Level 1</div>
+          </div>
+        </div>
+
+        <div class="cert-group">
+          <p class="cert-group-label">Vendor Certified</p>
+          <div class="cert-grid">
+            <div class="cert-chip"><strong>Palo Alto Networks</strong>Cortex XQL Cloud Security Professional</div>
+            <div class="cert-chip"><strong>Splunk</strong>Security Operations &amp; Defense Analyst</div>
+            <div class="cert-chip"><strong>Fortinet</strong>Certified Associate in Cybersecurity (FCA)</div>
+            <div class="cert-chip"><strong>Datadog</strong>Cloud Security Engineer</div>
+            <div class="cert-chip"><strong>Qualys</strong>Certified Specialist — Vulnerability Management</div>
+            <div class="cert-chip"><strong>Sophos</strong>Certified Central Endpoint &amp; Server Engineer</div>
+            <div class="cert-chip"><strong>Cisco</strong>Junior Cybersecurity Analyst — Networking Academy</div>
+          </div>
+        </div>
+
+        <div class="cert-group">
+          <p class="cert-group-label">Practical &amp; Hands-On</p>
+          <div class="cert-grid">
+            <div class="cert-chip"><strong>INE × ROOTCON</strong>Practical Ethical Hacking · Malware Analysis &amp; Triage · Windows Forensics · Web Application Security · GRC Analyst Master Class</div>
+            <div class="cert-chip"><strong>EC-Council</strong>Active Directory Penetration Testing · Network Defense Essentials · Digital Forensics Essentials</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <p class="section-label">Education</p>
+      <div class="edu-list">
+
+        <div class="edu-card">
+          <div class="edu-badge">BS CoE</div>
+          <div>
+            <div class="edu-degree">BS Computer Engineering</div>
+            <div class="edu-school">Ateneo de Zamboanga University</div>
+            <div class="edu-year">2020 – 2024</div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-badge">ISSO</div>
+          <div>
+            <div class="edu-degree">Founder &amp; President, Information Security Student Organization (ISSO)</div>
+            <div class="edu-school">Ateneo de Zamboanga University</div>
+            <div class="edu-year">2020 – 2024</div>
+            <ul class="edu-bullets">
+              <li>Established ADZU's first student-led cybersecurity organization to help students enter the security field</li>
+              <li>Organized training sessions, CTF competitions, and career mentoring for aspiring security professionals</li>
+              <li>Collaborated with the university IT department to assess, harden, and maintain ADZU's infrastructure for compliance and security posture</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Open to opportunities &amp; collaboration</h3>
+      <p>Available for SOC leadership, DFIR consulting, and penetration testing engagements</p>
+      <a class="cta-email" href="mailto:johndominicklimpag@gmail.com">johndominicklimpag@gmail.com</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
