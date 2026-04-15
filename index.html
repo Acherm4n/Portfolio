@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>John Dominick Limpag | Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,59 +20,207 @@
     }
 
     .grid-bg {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      position: fixed; inset: 0;
       background-image:
         linear-gradient(rgba(0,200,150,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,200,150,0.04) 1px, transparent 1px);
       background-size: 40px 40px;
-      pointer-events: none; z-index: 0;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .scan-line {
-      position: fixed; top: 0; left: 0; width: 100%; height: 2px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 2px;
       background: linear-gradient(90deg, transparent, #00e6a0, transparent);
-      animation: scan 6s linear infinite; z-index: 1; pointer-events: none;
+      animation: scan 6s linear infinite;
+      pointer-events: none;
+      z-index: 1;
     }
-    @keyframes scan { 0%{top:-2px} 100%{top:100%} }
 
-    .content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    @keyframes scan {
+      0% { top: -2px; }
+      100% { top: 100%; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
 
     /* HERO */
-    .hero { padding: 3rem 0 2.5rem; border-bottom: 0.5px solid rgba(0,230,160,0.2); }
+    .hero {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 0.5px solid rgba(0,230,160,0.2);
+    }
+
     .hero-tag {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px; color: #00e6a0; letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: 1rem;
+      font-size: 11px;
+      color: #00e6a0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
-    .hero-tag::before { content: '> '; opacity: 0.5; }
+
+    .hero-tag::before {
+      content: '> ';
+      opacity: 0.5;
+    }
+
     .hero h1 {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 500;
-      color: #e8f4ff; line-height: 1.15; margin-bottom: 0.5rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 500;
+      color: #e8f4ff;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
     }
-    .hero h1 span { color: #00e6a0; }
-    .hero-title {
-      font-size: 14px; color: #7a9bb5; letter-spacing: 1px;
-      font-family: 'IBM Plex Mono', monospace; margin-bottom: 1.5rem;
-    }
-    .hero-contact { display: flex; flex-wrap: wrap; gap: 12px; }
-    .contact-chip {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-      color: #7a9bb5; background: rgba(0,230,160,0.06);
-      border: 0.5px solid rgba(0,230,160,0.2);
-      padding: 5px 12px; border-radius: 2px; white-space: nowrap;
-    }
-    .contact-chip a { color: #00e6a0; text-decoration: none; }
 
-    /* SECTION */
-    .section { padding: 2rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
+    .hero h1 span {
+      color: #00e6a0;
+    }
+
+    .hero-title {
+      font-size: 14px;
+      color: #7a9bb5;
+      letter-spacing: 1px;
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-chip {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #7a9bb5;
+      background: rgba(0,230,160,0.06);
+      border: 0.5px solid rgba(0,230,160,0.2);
+      padding: 5px 12px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .contact-chip a {
+      color: #00e6a0;
+      text-decoration: none;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 2rem 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.05);
+    }
+
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px; color: #00e6a0; letter-spacing: 3px;
-      text-transform: uppercase; margin-bottom: 1.25rem;
-      display: flex; align-items: center; gap: 10px;
+      font-size: 10px;
+      color: #00e6a0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .section-label::after { content: ''; flex: 1; height: 0.5px; background: rgba(0,230,160,0.2); }
 
-    /* ABOUT */
-    .about-text { font-size: 15px; line-height: 1.8; color: #9ab5cc
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(0,230,160,0.2);
+    }
+
+    .about-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #9ab5cc;
+    }
+
+    /* PROJECTS */
+    .project {
+      margin-bottom: 1.5rem;
+    }
+
+    .project h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: #e8f4ff;
+      margin-bottom: 6px;
+    }
+
+    .project p {
+      font-size: 14px;
+      color: #9ab5cc;
+      margin-bottom: 6px;
+    }
+
+    .project a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #00e6a0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg"></div>
+  <div class="scan-line"></div>
+
+  <div class="content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Cybersecurity Portfolio</div>
+      <h1>John Dominick <span>Limpag</span></h1>
+      <div class="hero-title">Senior SOC Specialist</div>
+
+      <div class="hero-contact">
+        <div class="contact-chip">📍 Philippines</div>
+        <div class="contact-chip">📧 john.limpag@example.com</div>
+        <div class="contact-chip">
+          🔗 https://github.com/acherm4ngithub.com/acherm4n</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-label">About</div>
+      <p class="about-text">
+        Senior SOC Specialist with hands-on experience in threat detection,
+        incident response, SIEM monitoring, and security automation. Passionate
+        about building practical security tools and improving SOC efficiency.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <div class="section-label">Projects</div>
+
+      <div class="project">
+        <h3>SOCtool</h3>
+        <p>
+          A web-based SOC analyst utility designed to streamline daily security
+          operations, investigation, and analysis workflows.
+        </p>
+        https://acherm4n.github.io/SOCtool/
+          → View Project
+        </a>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
