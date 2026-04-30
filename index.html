@@ -1026,4 +1026,54 @@
       document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
       document.getElementById('imgModalTitle').textContent = title;
       document.getElementById('imgModal').classList.add('open');
-      document.body.style.overf
+      document.body.style.overflow = 'hidden';
+    }
+    function openProfileModal() {
+      var imgEl = document.getElementById('profilePhoto');
+      document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
+      document.getElementById('imgModalTitle').textContent = 'John Dominick B. Limpag — Cybersecurity Specialist';
+      document.getElementById('imgModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function openBtl1Modal() {
+      var imgEl = document.getElementById('btl1CertImg');
+      document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
+      document.getElementById('imgModalTitle').textContent = '★ GOLD — Blue Team Level 1 (BTL1) Certificate · Security Blue Team · Sep 19, 2024';
+      document.getElementById('imgModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeImgModal() {
+      document.getElementById('imgModal').classList.remove('open');
+      document.getElementById('imgModalSrc').removeAttribute('src');
+      document.body.style.overflow = '';
+    }
+
+    // MOBILE NAV
+    function toggleMobileNav() {
+      const links = document.querySelector('.nav-links');
+      const isOpen = links.style.display === 'flex';
+      links.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '60px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = 'rgba(3,11,21,0.98)';
+        links.style.padding = '1rem 2rem';
+        links.style.borderBottom = '1px solid rgba(0,230,160,0.1)';
+      }
+    }
+
+    // NAV ACTIVE
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 100) current = sec.id; });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = a.getAttribute('href') === '#'+current ? 'var(--green)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
