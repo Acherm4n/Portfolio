@@ -4,6 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>John Dominick Limpag | Cybersecurity Portfolio</title>
+
+  <!-- HTML Meta Tags -->
+  <meta name="description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta name="author"      content="John Dominick Limpag" />
+  <meta name="keywords"    content="cybersecurity, SOC analyst, DFIR, incident response, penetration testing, threat hunting, portfolio" />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url"         content="https://acherm4n.github.io/Portfolio/" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="John Dominick Limpag | Cybersecurity Portfolio" />
+  <meta property="og:description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta property="og:image"       content="https://avatars.githubusercontent.com/acherm4n?s=400" />
+  <meta property="og:image:width"  content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:image:alt"    content="John Dominick Limpag — Cybersecurity Specialist" />
+  <meta property="og:site_name"   content="JDL.sec" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta property="twitter:domain"  content="acherm4n.github.io" />
+  <meta property="twitter:url"     content="https://acherm4n.github.io/Portfolio/" />
+  <meta name="twitter:title"       content="John Dominick Limpag | Cybersecurity Portfolio" />
+  <meta name="twitter:description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta name="twitter:image"       content="https://avatars.githubusercontent.com/acherm4n?s=400" />
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+  <meta name="keywords"    content="cybersecurity, SOC analyst, DFIR, incident response, penetration testing, threat hunting, portfolio" />
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNSIgZmlsbD0iIzAzMGIxNSIvPjxwYXRoIGQ9Ik0xNiAzLjVMMjcgOHY4LjVjMCA2LjUtNSAxMS41LTExIDEzQzEwIDI4IDUgMjMgNSAxNi41Vjh6IiBmaWxsPSJyZ2JhKDAsMjMwLDE2MCwwLjEyKSIgc3Ryb2tlPSIjMDBlNmEwIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjx0ZXh0IHg9IjE2IiB5PSIyMS41IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMDBlNmEwIiBsZXR0ZXItc3BhY2luZz0iMSI+SkRMPC90ZXh0Pjwvc3ZnPg==" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -998,54 +1026,4 @@
       document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
       document.getElementById('imgModalTitle').textContent = title;
       document.getElementById('imgModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function openProfileModal() {
-      var imgEl = document.getElementById('profilePhoto');
-      document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
-      document.getElementById('imgModalTitle').textContent = 'John Dominick B. Limpag — Cybersecurity Specialist';
-      document.getElementById('imgModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function openBtl1Modal() {
-      var imgEl = document.getElementById('btl1CertImg');
-      document.getElementById('imgModalSrc').setAttribute('src', imgEl.getAttribute('src'));
-      document.getElementById('imgModalTitle').textContent = '★ GOLD — Blue Team Level 1 (BTL1) Certificate · Security Blue Team · Sep 19, 2024';
-      document.getElementById('imgModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeImgModal() {
-      document.getElementById('imgModal').classList.remove('open');
-      document.getElementById('imgModalSrc').removeAttribute('src');
-      document.body.style.overflow = '';
-    }
-
-    // MOBILE NAV
-    function toggleMobileNav() {
-      const links = document.querySelector('.nav-links');
-      const isOpen = links.style.display === 'flex';
-      links.style.display = isOpen ? 'none' : 'flex';
-      if (!isOpen) {
-        links.style.flexDirection = 'column';
-        links.style.position = 'absolute';
-        links.style.top = '60px';
-        links.style.left = '0';
-        links.style.right = '0';
-        links.style.background = 'rgba(3,11,21,0.98)';
-        links.style.padding = '1rem 2rem';
-        links.style.borderBottom = '1px solid rgba(0,230,160,0.1)';
-      }
-    }
-
-    // NAV ACTIVE
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 100) current = sec.id; });
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.style.color = a.getAttribute('href') === '#'+current ? 'var(--green)' : '';
-      });
-    });
-  </script>
-</body>
-</html>
+      document.body.style.overf
