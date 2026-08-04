@@ -6,7 +6,7 @@
   <title>John Dominick Limpag | Cybersecurity Portfolio</title>
 
   <!-- HTML Meta Tags -->
-  <meta name="description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta name="description" content="SOC Lead &amp; DFIR Specialist with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
   <meta name="author"      content="John Dominick Limpag" />
   <meta name="keywords"    content="cybersecurity, SOC analyst, DFIR, incident response, penetration testing, threat hunting, portfolio" />
 
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://acherm4n.github.io/Portfolio/" />
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="John Dominick Limpag | Cybersecurity Portfolio" />
-  <meta property="og:description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta property="og:description" content="SOC Lead &amp; DFIR Specialist with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
   <meta property="og:image"       content="https://avatars.githubusercontent.com/acherm4n?s=400" />
   <meta property="og:image:width"  content="400" />
   <meta property="og:image:height" content="400" />
@@ -26,7 +26,7 @@
   <meta property="twitter:domain"  content="acherm4n.github.io" />
   <meta property="twitter:url"     content="https://acherm4n.github.io/Portfolio/" />
   <meta name="twitter:title"       content="John Dominick Limpag | Cybersecurity Portfolio" />
-  <meta name="twitter:description" content="Senior SOC Specialist &amp; DFIR Lead with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
+  <meta name="twitter:description" content="SOC Lead &amp; DFIR Specialist with 6+ years in cybersecurity. Threat hunting, incident response, penetration testing, and compliance across enterprise environments." />
   <meta name="twitter:image"       content="https://avatars.githubusercontent.com/acherm4n?s=400" />
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
@@ -217,6 +217,19 @@
     .exp-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--green); }
     .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1rem; }
     .exp-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: rgba(0,230,160,0.6); background: rgba(0,230,160,0.06); border: 1px solid rgba(0,230,160,0.12); padding: 2px 8px; border-radius: 2px; }
+
+    /* GROUPED SUB-ROLES (LinkedIn-style, single company / multiple positions) */
+    .exp-group-tenure { font-size: 12px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; margin-top: 2px; }
+    .exp-subroles { margin-top: 1.25rem; display: flex; flex-direction: column; }
+    .exp-subrole { display: flex; gap: 14px; }
+    .exp-subrole-connector { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 12px; }
+    .exp-subrole-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); background: var(--bg); flex-shrink: 0; margin-top: 4px; }
+    .exp-subrole-dot.active { border-color: var(--green); background: var(--green); box-shadow: 0 0 8px rgba(0,230,160,0.5); }
+    .exp-subrole-line { width: 1px; flex: 1; background: rgba(255,255,255,0.1); margin-top: 4px; }
+    .exp-subrole-body { padding-bottom: 1.5rem; flex: 1; }
+    .exp-subrole:last-child .exp-subrole-body { padding-bottom: 0; }
+    .exp-subrole-title { font-size: 14px; font-weight: 700; color: var(--text-bright); }
+    .exp-subrole-location { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #4a6a80; display: block; margin-bottom: 0.75rem; }
 
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -575,7 +588,7 @@
         <span class="accent">Limpag</span>
       </h1>
       <p class="hero-roles">
-        Senior SOC Specialist <span>/</span> DFIR Analyst <span>/</span> Threat Hunter
+        SOC Lead <span>/</span> DFIR Analyst <span>/</span> Threat Hunter
       </p>
       <div class="hero-contact">
         <span class="contact-chip">📍 Pasay City, PH</span>
@@ -610,7 +623,7 @@
         <div class="about-text reveal reveal-delay-1">
           Cybersecurity Specialist with <strong>6+ years of experience</strong> in Security Operations, Digital Forensics and Incident Response (DFIR), Threat Hunting, and Vulnerability Assessment. Experienced in <strong>enterprise-level SOC environments</strong>, leading 24/7 monitoring teams, and implementing compliance frameworks.
           <br><br>
-          Currently serving as <strong>Senior SOC Specialist</strong> at SupportZebra, leading incident response operations, managing endpoint detection platforms, and ensuring compliance across multiple regulatory frameworks.
+          Currently serving as <strong>SOC Lead</strong> at SupportZebra, leading incident response operations, managing endpoint detection platforms, and ensuring compliance across multiple regulatory frameworks.
         </div>
         <div class="about-sidebar reveal reveal-delay-2">
           <h4>Compliance Frameworks</h4>
@@ -633,21 +646,46 @@
           <div class="timeline-dot"></div>
           <div class="exp-card">
             <div class="exp-header">
-              <div><div class="exp-role">SOC Lead</div><div class="exp-company">SupportZebra</div></div>
+              <div><div class="exp-role">SupportZebra</div><div class="exp-group-tenure">Full-time · 1 yr 9 mos</div></div>
               <span class="exp-badge badge-current">CURRENT</span>
             </div>
-            <span class="exp-date">Dec 2024 – Apr 2026</span>
-            <ul class="exp-bullets">
-              <li>Lead DFIR and SOC operations using Microsoft Defender (Global Admin), Sentinel, and Splunk SIEM</li>
-              <li>Manage Palo Alto Cortex XDR, Sophos Firewall, Microsoft Intune, and Exchange</li>
-              <li>Administer NinjaOne RMM for endpoint monitoring and patch management</li>
-              <li>Handle ticketing workflows via ServiceNow and ConnectWise</li>
-              <li>Conduct vulnerability assessments; guide NIST, FedRAMP, and ISO 27001 compliance</li>
-              <li>Supervise 24/7 Security Operations Center team</li>
-            </ul>
-            <div class="exp-tags">
-              <span class="exp-tag">MS Defender</span><span class="exp-tag">Sentinel</span><span class="exp-tag">Splunk</span>
-              <span class="exp-tag">Cortex XDR</span><span class="exp-tag">NinjaOne</span><span class="exp-tag">FedRAMP</span>
+            <div class="exp-subroles">
+              <div class="exp-subrole">
+                <div class="exp-subrole-connector">
+                  <span class="exp-subrole-dot active"></span>
+                  <span class="exp-subrole-line"></span>
+                </div>
+                <div class="exp-subrole-body">
+                  <div class="exp-subrole-title">SOC Lead</div>
+                  <span class="exp-date">Sep 2025 – Current</span>
+                  <ul class="exp-bullets">
+                    <li>Lead DFIR and SOC operations using Microsoft Defender (Global Admin), Sentinel, and Splunk SIEM</li>
+                    <li>Handle ticketing workflows via ServiceNow and ConnectWise</li>
+                    <li>Supervise 24/7 Security Operations Center team</li>
+                  </ul>
+                  <div class="exp-tags">
+                    <span class="exp-tag">MS Defender</span><span class="exp-tag">Sentinel</span><span class="exp-tag">Splunk</span>
+                  </div>
+                </div>
+              </div>
+              <div class="exp-subrole">
+                <div class="exp-subrole-connector">
+                  <span class="exp-subrole-dot"></span>
+                </div>
+                <div class="exp-subrole-body">
+                  <div class="exp-subrole-title">Senior SOC Specialist</div>
+                  <span class="exp-date">Dec 2024 – Sep 2025</span>
+                  <span class="exp-subrole-location">Cagayan de Oro City, Northern Mindanao, Philippines · Hybrid</span>
+                  <ul class="exp-bullets">
+                    <li>Manage Palo Alto Cortex XDR, Sophos Firewall, Microsoft Intune, and Exchange</li>
+                    <li>Administer NinjaOne RMM for endpoint monitoring and patch management</li>
+                    <li>Conduct vulnerability assessments; guide NIST, FedRAMP, and ISO 27001 compliance</li>
+                  </ul>
+                  <div class="exp-tags">
+                    <span class="exp-tag">Cortex XDR</span><span class="exp-tag">NinjaOne</span><span class="exp-tag">FedRAMP</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
